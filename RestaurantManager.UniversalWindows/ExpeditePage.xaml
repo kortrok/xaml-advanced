@@ -26,6 +26,37 @@
             <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
         <GridView Grid.Row="1" ItemsSource="{Binding OrderItems}">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="20" Height="310" Width="270">
+                        <Grid.Background>
+                            <SolidColorBrush Color="DarkGray"/>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".64*"/>
+                            <RowDefinition Height=".18*"/>
+                            <RowDefinition Height=".18*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Border Background="DimGray">
+                            <ListBox ItemsSource="{Binding Items}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Title}" FontSize="20"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Border>
+                        <TextBlock Grid.Row="1" Text="{Binding Table.Description}" FontSize="24"/>
+                        <TextBlock Grid.Row="2" FontSize="14" Margin="10.4,0,0,0">
+                            <Run Text="Special Notes:"/>
+                            <LineBreak/>
+                            <Run Text="{Binding SpecialRequests}"/>
+                        </TextBlock>
+                        <Button Grid.Row="3" Content="Delete" HorizontalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
         </GridView>
         <Button Content="Clear All Orders" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
     </Grid>
