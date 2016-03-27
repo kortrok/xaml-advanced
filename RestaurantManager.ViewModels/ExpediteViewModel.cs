@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using RestaurantManager.Models;
+using System.Collections.Generic;
 
-namespace RestaurantManager.Models
+namespace RestaurantManager.ViewModels
 {
-    public class ExpediteDataManager : DataManager
+    public class ExpediteViewModel : ViewModel
     {
         protected override void OnDataLoaded()
         {
@@ -18,7 +19,7 @@ namespace RestaurantManager.Models
                 if (value != _OrderItems)
                 {
                     _OrderItems = value;
-                    OnPropertyChanged();
+                    NotifyPropertyChanged();
                 }
             }
         }
